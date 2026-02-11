@@ -5,6 +5,7 @@ namespace App\Services\Admin;
 use App\Models\Doctor;
 use App\Repositories\Admin\Interfaces\DoctorRepositoryInterface;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\Storage;
 
@@ -79,6 +80,15 @@ class DoctorService
     public function getDoctors(?array $filterData = null, ?array $selectedcolumns = null): ?LengthAwarePaginator
     {
         return $this->doctorRepo->getDoctors($filterData, $selectedcolumns);
+    }
+
+
+    /* ============================================================================
+    |  Fetch doctor Collection with optional filters and selected columns.
+    ==============================================================================*/
+    public function getDoctorsCollection(?array $filterData = null, ?array $selectedcolumns = null): ?Collection
+    {
+        return $this->doctorRepo->getDoctorsCollection($filterData, $selectedcolumns);
     }
 
     /* ============================================================================

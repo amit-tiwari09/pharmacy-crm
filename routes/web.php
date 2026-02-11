@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\DoctorController;
 use App\Http\Controllers\Admin\MedicineListController;
+use App\Http\Controllers\Admin\PatientController;
 use App\Http\Controllers\Admin\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -43,3 +44,11 @@ Route::post('dashboard/doctor/store', [DoctorController::class, 'store'])->name(
 Route::delete('dashboard/doctor/delete', [DoctorController::class, 'delete'])->name('doctor.delete')->middleware('auth');
 Route::get('dashboard/doctor/edit/{id}', [DoctorController::class, 'edit'])->name('doctor.edit')->middleware('auth');
 Route::put('dashboard/doctor/update', [DoctorController::class, 'update'])->name('doctor.update')->middleware('auth');
+
+
+/* ====================== Dashboard > Patients ====================== */
+Route::get('dashboard/patient', [PatientController::class, 'index'])->name('patient.index')->middleware('auth');
+Route::post('dashboard/patient/store', [PatientController::class, 'store'])->name('patient.store')->middleware('auth');
+Route::delete('dashboard/patient/delete', [PatientController::class, 'delete'])->name('patient.delete')->middleware('auth');
+Route::get('dashboard/patient/edit/{id}', [PatientController::class, 'edit'])->name('patient.edit')->middleware('auth');
+Route::put('dashboard/patient/update', [PatientController::class, 'update'])->name('patient.update')->middleware('auth');

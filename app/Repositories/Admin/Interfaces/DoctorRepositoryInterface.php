@@ -3,6 +3,7 @@
 namespace App\Repositories\Admin\Interfaces;
 
 use App\Models\Doctor;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Pagination\LengthAwarePaginator;
 
 interface DoctorRepositoryInterface
@@ -22,6 +23,11 @@ interface DoctorRepositoryInterface
     |  Fetch doctor with optional filters and selected columns.
     ==============================================================================*/
     public function getDoctors(?array $filterData = null, ?array $selectedcolumns = null): ?LengthAwarePaginator;
+
+    /* ============================================================================
+    |  Fetch doctor Collection with optional filters and selected columns.
+    ==============================================================================*/
+    public function getDoctorsCollection(?array $filterData = null, ?array $selectedcolumns = null): ?Collection;
 
     /* ============================================================================
     |Update specific columns of an existing doctor record.

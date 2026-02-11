@@ -4,6 +4,7 @@ namespace App\Repositories\Admin;
 
 use App\Models\Doctor;
 use App\Repositories\Admin\Interfaces\DoctorRepositoryInterface;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Pagination\LengthAwarePaginator;
 
 class DoctorRepository implements DoctorRepositoryInterface
@@ -67,6 +68,34 @@ class DoctorRepository implements DoctorRepositoryInterface
                 }
             )
             ->paginate($filterData['paginateLimit'] ?? 10);
+    }
+
+
+    /* ============================================================================
+    |  Fetch doctor Collection with optional filters and selected columns.
+    ==============================================================================*/
+    public function getDoctorsCollection(?array $filterData = null, ?array $selectedcolumns = null): ?Collection
+    {
+
+        return Doctor::when(
+            isset($filterData['fullName']),
+            function ($query) use ($filterData) {
+                $query->where('full_name', 'LIKE', '%' . $filterData['fullName'] . '%');
+            }
+        )
+            ->when(
+                isset($filterData['email']),
+                function ($query) use ($filterData) {
+                    $query->where('email', 'LIKE', '%' . $filterData['email'] . '%');
+                }
+            )
+            ->when(
+                isset($selectedcolumns) && count($selectedcolumns) >= 1,
+                function ($query) use ($selectedcolumns) {
+                    return $query->select($selectedcolumns);
+                }
+            )
+            ->get();
     }
 
     /* ============================================================================
