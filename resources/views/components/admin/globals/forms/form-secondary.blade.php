@@ -1,15 +1,15 @@
 @php
-    use Illuminate\Support\Str;
+use Illuminate\Support\Str;
 @endphp
 
 @props([
-    'id' => null,
-    'method' => 'GET',
-    'action' => '#',
+'id' => null,
+'method' => 'GET',
+'action' => '#',
 ])
 
 @php
-    $id = $id ?? Str::uuid()->toString();
+$id = $id ?? Str::uuid()->toString();
 @endphp
 
 
@@ -19,7 +19,7 @@
     ]) }}>
 
     @if ($method == 'POST')
-        @csrf
+    @csrf
     @endif
 
     {{ $fields }}

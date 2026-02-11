@@ -28,7 +28,7 @@
              <div class="h-px bg-linear-to-r from-transparent via-gray-300 to-transparent mx-4"></div>
 
              <div class="p-2">
-                 <x-admin.headers.dropdown-item label="Logout" httpMethod="post" :svgUrl="asset('assets/svg/exit-red.svg')" />
+                 <x-admin.headers.dropdown-item label="Logout" :url="route('logout')" httpMethod="POST" :svgUrl="asset('assets/svg/exit-red.svg')" />
              </div>
          </div>
      </div>
