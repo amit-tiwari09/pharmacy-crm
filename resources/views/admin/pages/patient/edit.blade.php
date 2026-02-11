@@ -135,7 +135,7 @@
             </x-slot>
 
             <x-slot name="action_buttons">
-                <x-admin.globals.buttons.quinary label="Cancel" :svgUrl="asset('assets/svg/corner-up-left.svg')" />
+                <x-admin.globals.buttons.quinary type="url" :url="route('patient.index')" label="Cancel" :svgUrl="asset('assets/svg/corner-up-left.svg')" />
                 <x-admin.globals.buttons.quaternary type="submit" class="flex-1" label="Save" :svgUrl="asset('assets/svg/white-save.svg')" />
             </x-slot>
 

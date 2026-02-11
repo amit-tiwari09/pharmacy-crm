@@ -144,7 +144,7 @@ class PatientService
 
 
     /* ============================================================================
-    | Permanently delete an doctor.
+    | Permanently delete an patient.
     ==============================================================================*/
     public function delete(int $id): bool
     {

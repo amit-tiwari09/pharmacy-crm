@@ -39,8 +39,9 @@
          </x-admin.sidebar.nav-item-group>
 
          <!--======== Setting  ========-->
-         <x-admin.sidebar.nav-item-group title="Setting" :svgUrl="asset('assets/svg/setting.svg')" :activeRoutes="['admin.index', 'admin.edit']">
+         <x-admin.sidebar.nav-item-group title="Setting" :svgUrl="asset('assets/svg/setting.svg')" :activeRoutes="['admin.index', 'admin.edit', 'staff.index', 'staff.edit']">
              <x-admin.sidebar.nav-sub-item title="Admin" :url="route('admin.index')" :activeRoutes="['admin.index', 'admin.edit']" />
+             <x-admin.sidebar.nav-sub-item title="Staff" :url="route('staff.index')" :activeRoutes="['staff.index', 'staff.edit']" />
          </x-admin.sidebar.nav-item-group>
 
      </nav>
